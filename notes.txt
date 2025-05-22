@@ -1,0 +1,17 @@
+/site
+├── index.html                <-- Homepage
+├── /css
+│   └── main.css              <-- All your global styles
+├── /js
+│   ├── main.js               <-- Navigation, common logic
+│   ├── cart.js               <-- Cart-related logic
+│   ├── product.js            <-- Product details or listing logic
+├── /images
+│   └── logo.png              <-- Store images, banners, icons
+├── /pages
+│   ├── product.html          <-- Product details page
+│   ├── cart.html             <-- Cart page
+│   └── checkout.html         <-- Checkout form
+└── /components
+    ├── navbar.html           <-- Reusable header/navbar
+    └── footer.html           <-- Reusable footer
