@@ -1,24 +1,24 @@
+/* === GENERAL === */
 body {
-    margin: 0;
-    font-family: 'Inter';
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  main {
-    flex: 1;
-  }
-  
+  margin: 0;
+  font-family: 'Inter';
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+/* === HEADER === */
 header {
-  background-color: #0e0e0e;
-  color: white;
+  background-color: #121212; /* Slightly softer than pure black */
+  color: #F5F5F5;
   padding: 12px 30px;
-  border: solid 1px rgba(77, 77, 77, 0.533);
-  align-items: center;
+  border-bottom: 1px solid #2a2a2a;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,7 @@ header {
 .logo-name {
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
+  color: #F5F5F5;
 }
 
 .header-right {
@@ -41,11 +41,12 @@ header {
   align-items: center;
 }
 
-
 .logo {
   font-size: 1.5em;
   font-weight: bold;
 }
+
+/* === NAVIGATION === */
 nav ul {
   list-style: none;
   margin: 0;
@@ -53,39 +54,38 @@ nav ul {
   display: flex;
   gap: 2px;
 }
+
 nav ul li a {
   text-decoration: none;
   font-size: 1.1em;
-  color: white;
+  color: #F5F5F5;
   transition: color 0.2s;
 }
-/* navbar customize*/
+
+/* Auth Buttons */
 .auth-item a {
-  display: inline-block; 
-  color: white;
+  display: inline-block;
+  color: #F5F5F5;
   font-size: 1em;
   padding: 12px 0;
   width: 100px;
   text-align: center;
-  border: 1px solid;
+  border: 1px solid #444;
   border-radius: 10px;
-  border-color: rgba(125, 125, 125, 0.533);
   font-weight: 600;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 0 5px;
   box-sizing: border-box;
   transition: transform 0.3s, color 0.2s, border-color 0.2s;
 }
 
-
 .auth-item a:hover {
-  color: #ffebc1;
-  border-color: rgba(215, 215, 215, 0.533);
+  color: #ffdd99;
+  border-color: #777;
 }
 
-.nav-ele a{
-  display: inline-block; 
-  color: white;
+.nav-ele a {
+  display: inline-block;
+  color: #F5F5F5;
   font-size: 1em;
   padding: 10px 10px;
   margin-top: 2px;
@@ -94,101 +94,88 @@ nav ul li a {
 }
 
 .nav-ele a:hover {
-  color: #ffebc1;
+  color: #ffdd99;
 }
 
-.contact-us a{
+.contact-us a {
   margin-right: 15px;
 }
 
-#open-sidebar{
+/* Sidebar Toggle Buttons */
+#open-sidebar,
+#close-sidebar {
   display: none;
 }
-#close-sidebar{
-  display: none;
-}
-/* end */
 
-
-/* side menu */
+/* === MOBILE NAVIGATION === */
 @media screen and (max-width: 830px) {
-  nav{
+  nav {
     position: fixed;
     top: 0;
     right: -100%;
     height: 100vh;
     width: min(15em, 100%);
     z-index: 10;
-    border-left: 1px solid var(--hover-color);
-    background-color: rgb(0, 0, 0);
+    border-left: 1px solid #444;
+    background-color: #121212;
     transition: right 0.3s ease-in-out;
   }
-  nav ul{
+
+  nav ul {
     width: 100%;
-    flex-direction: column ;
+    flex-direction: column;
   }
-  .show{
+
+  .show {
     right: 0;
   }
+
   .auth-item a {
-    display: inline-block; 
-    padding: 12px 0;
     width: 95%;
-    text-align: center;
-    border: 1px solid;
-    border-color: rgba(227, 227, 227, 0.744);
-    border-radius: 8px;
+    border: 1px solid #555;
     margin-left: 5px;
     margin-top: 10px;
-    box-sizing: border-box;
+    border-radius: 8px;
   }
-  
+
   .auth-item a:hover {
-    color: #ffebc1;
-    border-color: rgba(255, 255, 255, 0.768);
+    color: #F5F5F5;
+    border-color: #888;
   }
-  .nav-ele a{
-    display: inline-block; 
-    padding: 10px 10px;
-    color: #ffebc1;
-    margin-top: 4px;
-    cursor: pointer;
-    transition: color 0.2s;
+
+  .nav-ele a {
     width: 85%;
     margin-left: 6px;
     text-align: center;
+    color: #ffdd99;
+    margin-top: 4px;
   }
+
   .nav-ele a:hover {
-    color: white
+    color: #F5F5F5;
   }
+
   header {
     padding: 1px 10px;
   }
-/* display button only on small view */
-  #open-sidebar{
+
+  #open-sidebar,
+  #close-sidebar {
     display: block;
     background: none;
     border: none;
     padding: 1em;
     cursor: pointer;
-    margin-left: auto;
   }
-  #close-sidebar{
-    display:block;
-    background: none;
-    border: none;
-    padding: 1em;
-    cursor: pointer;
-  }
-/* end*/
 }
 
-/* footer */
+
+/* === FOOTER === */
 .site-footer {
-  background-color: #0f0f0f;
-  color: #ccc;
+  background-color: #121212;
+  color: #cccccc;
   font-family: 'Inter';
-  padding: 10px 20px 20px;
+  padding: 20px;
 }
 
 .footer-container {
@@ -208,9 +195,9 @@ nav ul li a {
 .footer-logo {
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bold;
-  color: white;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
@@ -220,15 +207,17 @@ nav ul li a {
   margin-right: 10px;
 }
 
+.footer-section h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
 .footer-section p,
 .footer-section li {
   font-size: 0.95em;
   line-height: 1.6;
-}
-
-.footer-section h3 {
-  color: white;
-  margin-bottom: 10px;
+  color: #cccccc;
 }
 
 .footer-section ul {
@@ -243,34 +232,38 @@ nav ul li a {
 
 .footer-section a {
   text-decoration: none;
-  color: #ccc;
+  color: #cccccc;
   transition: color 0.2s;
 }
 
 .footer-section a:hover {
-  color: #ffebc1;
+  color: #ffdd99;
 }
 
-.brand{
+.brand {
   padding-top: 10px;
 }
 
+/* === SOCIAL ICONS === */
 .social-icons a {
   display: inline-block;
   margin-right: 10px;
-  color: #ccc;
+  color: #cccccc;
   font-size: 1.2em;
   transition: color 0.2s;
 }
 
 .social-icons a:hover {
-  color: #ffebc1;
+  color: #ffdd99;
 }
-.newsletter{
-  background-color: #1a1a1a;
-  padding-left: 20px;
+
+/* === NEWSLETTER === */
+.newsletter {
+  background-color: #1c1c1c;
+  padding: 15px 20px;
   border-radius: 8px;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .newsletter-form {
@@ -286,6 +279,8 @@ nav ul li a {
   border: none;
   border-radius: 4px 0 0 4px;
   outline: none;
+  background-color: #2a2a2a;
+  color: #ffffff;
 }
 
 .newsletter-form button {
@@ -295,20 +290,21 @@ nav ul li a {
   padding: 8px 14px;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
 .newsletter-form button:hover {
   background-color: #0056b3;
 }
 
+/* === BOTTOM SECTION === */
 .footer-bottom {
   border-top: 1px solid #333;
   margin-top: 30px;
   padding-top: 20px;
   text-align: center;
   font-size: 0.9em;
-  color: #aaa;
+  color: #aaaaaa;
 }
 
 .footer-policies {
@@ -317,11 +313,11 @@ nav ul li a {
 
 .footer-policies a {
   margin: 0 10px;
-  color: #aaa;
+  color: #aaaaaa;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .footer-policies a:hover {
-  color: #ffebc1;
+  color: #ffdd99;
 }
-/* end */

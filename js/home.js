@@ -15,18 +15,21 @@ overlayInput.addEventListener('blur', () => {
 //category section loading
 
 function updateButtonStyles(category) {
-    const buttons = document.querySelectorAll('.category-btn');
-    buttons.forEach(btn => {
-      btn.style.color = '#FFFFFF'; // reset all buttons to default
-      btn.style.border = '1px solid rgba(125, 125, 125, 0.533)'; // reset all buttons to default
-    });
-  
-    const activeBtn = document.getElementById(category);
-    if (activeBtn) {
-      activeBtn.style.color = '#ffebc1';
-      activeBtn.style.border = '1px solid rgba(215, 215, 215, 0.533)'; // change border color to match text
-    }
+  const buttons = document.querySelectorAll('.category-btn');
+
+  buttons.forEach(btn => {
+    btn.style.color = '#ffffff'; // default text color
+    btn.style.border = '1px solid rgba(125, 125, 125, 0.5)'; // default border
+    btn.style.backgroundColor = '#000000'; // default background
+  });
+
+  const activeBtn = document.getElementById(category);
+  if (activeBtn) {
+    activeBtn.style.color = '#000000'; // active text color
+    activeBtn.style.border = '1px solid #ffebc1'; // subtle highlight
+    activeBtn.style.backgroundColor = '#ffebc1'; // highlight background
   }
+}
 
 const categoryCache = {};
 
