@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/product.css">
+    
+</head>
+<body>
+    <div id="head-nav"></div>
+    <section class="product-page">
+  <div class="container product-container">
+    <div class="product-images">
+      <img src="" alt="Product Image" class="main-image" id="main-image">
+      <div class="thumbnail-row" id="thumbnail-row">
+        <!-- Thumbnails will be inserted here -->
+      </div>
+    </div>
+
+    <div class="product-details">
+      <h1 class="product-title"></h1>
+      <p class="product-brand"></p>
+      <p class="product-price"><span class="product-fake-price"></span></p>
+      <p class="product-description">
+      </p>
+      <ul class="product-features">
+        <li>Durable and long-lasting</li>
+        <li>Minimalist design</li>
+        <li>Multiple sizes available</li>
+        <li>Easy maintenance</li>
+      </ul>
+      <div class="product-options">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" value="1" min="1">
+      </div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="container about-product">
+    <h2>About the Product</h2>
+    <p>
+      This product combines smart engineering with premium materials. It meets high-quality standards and is perfect for both casual and professional use. Designed for sustainability and elegance, it fits seamlessly into modern lifestyles.
+    </p>
+  </div>
+
+  <div class="container reviews-section">
+    <h2>Ratings and Reviews</h2>
+    <div class="overall-rating">
+      <span class="rating-value">4.3</span> out of 5
+      <div class="stars">★★★★☆</div>
+      <p>Based on 248 reviews</p>
+    </div>
+    <div class="review-list">
+      <div class="review">
+        <p class="review-user">Ravi Kumar</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Amazing quality and fast delivery. The product exceeded expectations!</p>
+      </div>
+      <div class="review">
+        <p class="review-user">Ananya Sinha</p>
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">Very practical and well-designed. Worth the price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <div id="footer"></div>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/product.js" defer></script>
+</body>
+</html>

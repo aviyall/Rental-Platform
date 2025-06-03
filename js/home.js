@@ -35,25 +35,60 @@ const categoryCache = {};
 
 function loadCategory(category) {
   if (categoryCache[category]) {
-    document.getElementById('product-section').innerHTML = categoryCache[category];
+    document.getElementById('product-section').innerHTML = categoryCache[category].html;
     updateButtonStyles(category);
+    appendProducts(categoryCache[category].products);
   } else {
     fetch(`/components/${category}.html`)
       .then(res => res.text())
-      .then(data => {
-        categoryCache[category] = data;
-        document.getElementById('product-section').innerHTML = data;
-        updateButtonStyles(category);
+      .then(htmlData => {
+        fetch('https://bgridtechnologies.in/api/products')
+          .then(res => res.json())
+          .then(productsData => {
+            categoryCache[category] = {
+              html: htmlData,
+              products: productsData.products
+            };
+
+            document.getElementById('product-section').innerHTML = htmlData;
+            updateButtonStyles(category);
+            appendProducts(productsData.products);
+          });
       })
       .catch(err => {
-        console.error(`Error loading ${category}.html:`, err);
+        console.error(`Error loading ${category}:`, err);
       });
   }
 }
 
-//default category when index page load
-window.addEventListener('DOMContentLoaded', () => {
-    loadCategory('featured');
-});
+function appendProducts(products) {
+  const grid = document.getElementById('product-grid');
+  if (!grid) {
+    console.error('product-grid element not found!');
+    return;
+  }
+  grid.innerHTML = '';
 
-  
+  products.forEach(product => {
+    const card = document.createElement('a');
+    card.href = `/pages/product.html?id=${product.id}`;
+    card.className = 'product-card';
+    card.style.textDecoration = 'none';
+    card.style.color = 'inherit';
+
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${product.image_url}" alt="${product.name}" style="width: 100%; height: auto;">
+      </div>
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  loadCategory('featured');
+});
