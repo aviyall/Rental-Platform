@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../css/auth.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Complete Profile - RentHub</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="content">
+        <h2>Complete your profile</h2>
+        <form id="profileForm">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required />
+
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+
+          <label for="confirm">Confirm Password</label>
+          <input type="password" id="confirm" name="confirm" required />
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="terms" />
+            <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+          </div>
+
+          <button type="submit" class="continue-btn" id="submitBtn" disabled>Continue ▸</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById('terms');
+    const submitBtn = document.getElementById('submitBtn');
+
+    checkbox.addEventListener('change', () => {
+      submitBtn.disabled = !checkbox.checked;
+    });
+  </script>
+</body>
+</html>

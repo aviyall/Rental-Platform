@@ -1,7 +1,7 @@
 /* === HERO SECTION === */
 .hero-wrapper {
   width: 100%;
-  background-color: #eeeeee;
+  background-color: #E2DFD2;
   color: #000000;
   padding: 40px 20px;
   box-sizing: border-box;
@@ -64,7 +64,7 @@
 .filters button {
   background-color: #000000;
   color: #ffffff;
-  border: 1px solid #959595;
+  border: 1px solid #000000;
   padding: 10px 16px;
   border-radius: 8px;
   font-size: 1em;
@@ -165,7 +165,7 @@
 /* === PRODUCT CATEGORY SECTION === */
 .product-category {
   padding: 10px 20px 30px;
-  background-color: #f9f9f9;
+  background-color: #FAF9F6;
   box-sizing: border-box;
 }
 
@@ -187,7 +187,7 @@
 
 /* === PRODUCT CARD === */
 .product-card {
-  background-color: #1e1e1e;
+  background-color: #ffffff;
   border: 1px solid #3c3c3c;
   border-radius: 10px;
   overflow: hidden;
@@ -203,7 +203,7 @@
 }
 
 .product-image {
-  background-color: #333333;
+  background-color: #e0e0e0;
   height: 65%;
   width: 100%;
 }
@@ -223,7 +223,7 @@
 .product-info p {
   margin: 0;
   font-size: 0.9em;
-  color: #c2c2c2;
+  color: #000000;
 }
 
 /* === RESPONSIVE PRODUCT GRID === */

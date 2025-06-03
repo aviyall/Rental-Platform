@@ -1,0 +1,262 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter';
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Container */
+  .container {
+    padding: 20px;
+  }
+  
+  /* Card */
+  .card {
+    background: white; /* keep this! */
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2); /* darker, larger shadow */
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  /* Content Section */
+  .content {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  h2 {
+    margin-bottom: 0.25rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .content p {
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .google-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+  
+  .google-btn img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+  .divider span {
+    padding: 0 10px;
+    color: #888;
+    font-size: 0.85rem;
+  }
+  
+  /* Form */
+  form {
+    text-align: left;
+  }
+  
+  label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+  }
+  
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+  
+  .continue-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #2c2c2c, #3e3e3e);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .continue-btn:hover {
+    background: linear-gradient(90deg, #1f1f1f, #2e2e2e);
+  }
+  
+  /* Footer Section */
+  .card-footer {
+    background: #f3f3f3;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+  
+  .card-footer a {
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .content {
+      padding: 1.5rem 1rem;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+    }
+  
+    .continue-btn,
+    .google-btn {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Verify Email */
+
+  .email-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0 16px;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .edit-icon {
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .code-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  
+  .code-inputs input {
+    width: 48px;
+    height: 56px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .code-inputs input:focus {
+    border-color: #4b4bff;
+  }
+  
+  .resend {
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+    margin-top: -8px;
+  }
+  
+  .resend a {
+    color: #555;
+    font-weight: 500;
+    text-decoration: none;
+  }
+/* complete profile */
+
+form {
+    display: flex;
+    min-width: 350px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  form label {
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  
+  .checkbox-row a {
+    color: #444;
+    text-decoration: underline;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  

@@ -19,14 +19,14 @@ function updateButtonStyles(category) {
 
   buttons.forEach(btn => {
     btn.style.color = '#ffffff'; // default text color
-    btn.style.border = '1px solid rgba(125, 125, 125, 0.5)'; // default border
+    btn.style.border = '1px solid rgb(0, 0, 0)'; // default border
     btn.style.backgroundColor = '#000000'; // default background
   });
 
   const activeBtn = document.getElementById(category);
   if (activeBtn) {
     activeBtn.style.color = '#000000'; // active text color
-    activeBtn.style.border = '1px solid #ffebc1'; // subtle highlight
+    activeBtn.style.border = '1px solid rgb(0, 0, 0)'; // subtle highlight
     activeBtn.style.backgroundColor = '#ffebc1'; // highlight background
   }
 }
