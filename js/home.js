@@ -42,7 +42,7 @@ function loadCategory(category) {
     fetch(`/components/${category}.html`)
       .then(res => res.text())
       .then(htmlData => {
-        fetch('https://bgridtechnologies.in/api/products')
+        fetch('https://api.bgridtechnologies.in/api/products')
           .then(res => res.json())
           .then(productsData => {
             categoryCache[category] = {

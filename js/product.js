@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!productId) return;
 
     try {
-        const response = await fetch(`https://bgridtechnologies.in/api/product/${productId}`);
+        const response = await fetch(`https://api.bgridtechnologies.in/api/product/${productId}`);
         const result = await response.json();
         const product = result.product;
 
