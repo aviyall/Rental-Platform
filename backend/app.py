@@ -4,8 +4,8 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import os
 
-username = os.getenv('USER')
-password = os.getenv('PASSWORD')
+username = os.getenv('USERNAME_SUPABASE')
+password = os.getenv('PASSWORD_SUPABASE')
 
 app = Flask(__name__)
 CORS(app)
@@ -27,17 +27,39 @@ def get_db_connection():
         print(f"Database connection error: {e}")
         return None
 
-@app.route('/api/products')
-def list_products():
+@app.route('/api/category-items/<category_name>')
+def category_items(category_name):
     conn = get_db_connection()
     if conn is None:
         return jsonify({"error": "Could not connect to the database"}), 500
 
+    category_headings = {
+        'digital': 'Digital Devices',
+        'electronics': 'Electronics',
+        'powertools': 'Power Tools',
+        'featured': 'Featured Products'
+    }
+
+    if category_name not in category_headings:
+        return jsonify({"error": "Invalid category"}), 400
+
     try:
         with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-            cursor.execute("SELECT id, name, description, image_url FROM products;")
+            if category_name == 'featured':
+                cursor.execute(
+                    "SELECT id, name, description, image_url FROM products WHERE sub_category = %s;",
+                    ('featured',)
+                )
+            else:
+                cursor.execute(
+                    "SELECT id, name, description, image_url FROM products WHERE category = %s;",
+                    (category_name,)
+                )
             products = cursor.fetchall()
-        return jsonify({"products": products})
+            return jsonify({
+                "heading": category_headings[category_name],
+                "products": products
+            })
     except Exception as e:
         print(f"Query error: {e}")
         return jsonify({"error": "Error fetching products"}), 500
