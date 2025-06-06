@@ -13,52 +13,49 @@ overlayInput.addEventListener('blur', () => {
 });
 
 //category section loading
-
 function updateButtonStyles(category) {
   const buttons = document.querySelectorAll('.category-btn');
 
   buttons.forEach(btn => {
-    btn.style.color = '#ffffff'; // default text color
-    btn.style.border = '1px solid rgb(0, 0, 0)'; // default border
-    btn.style.backgroundColor = '#000000'; // default background
+    btn.style.color = '#ffffff';
+    btn.style.border = '1px solid rgb(0, 0, 0)';
+    btn.style.backgroundColor = '#000000';
   });
 
   const activeBtn = document.getElementById(category);
   if (activeBtn) {
-    activeBtn.style.color = '#000000'; // active text color
-    activeBtn.style.border = '1px solid rgb(0, 0, 0)'; // subtle highlight
-    activeBtn.style.backgroundColor = '#ffebc1'; // highlight background
+    activeBtn.style.color = '#000000';
+    activeBtn.style.border = '1px solid rgb(0, 0, 0)';
+    activeBtn.style.backgroundColor = '#ffebc1';
+  } else {
+    console.warn(`No button with id="${category}" found`);
   }
 }
 
 const categoryCache = {};
 
 function loadCategory(category) {
-  if (categoryCache[category]) {
-    document.getElementById('product-section').innerHTML = categoryCache[category].html;
-    updateButtonStyles(category);
-    appendProducts(categoryCache[category].products);
-  } else {
-    fetch(`/components/${category}.html`)
-      .then(res => res.text())
-      .then(htmlData => {
-        fetch('https://api.bgridtechnologies.in/api/products')
-          .then(res => res.json())
-          .then(productsData => {
-            categoryCache[category] = {
-              html: htmlData,
-              products: productsData.products
-            };
+  updateButtonStyles(category); // ensure style is updated immediately
 
-            document.getElementById('product-section').innerHTML = htmlData;
-            updateButtonStyles(category);
-            appendProducts(productsData.products);
-          });
+  if (categoryCache[category]) {
+    updateCategorySection(categoryCache[category], category);
+  } else {
+    fetch(`https://api.bgridtechnologies.in/api/category-items/${category}`)
+      .then(res => res.json())
+      .then(data => {
+        categoryCache[category] = data;
+        updateCategorySection(data, category);
       })
       .catch(err => {
-        console.error(`Error loading ${category}:`, err);
+        console.error(`Error loading category ${category}:`, err);
       });
   }
+}
+
+function updateCategorySection(data, category) {
+  document.getElementById('category-heading').textContent = data.heading;
+  updateButtonStyles(category);
+  appendProducts(data.products);
 }
 
 function appendProducts(products) {
